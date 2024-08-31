@@ -1,0 +1,2938 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--Tailwind css -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- customized confirgation-->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        screens: {
+          sm: "480px",
+          md: "768px",
+          lg: "1024px",
+        },
+        extend: {
+          keyframes: {
+            move: {
+              "50%": { transform: "translateY(-1rem)" },
+            },
+          },
+          animation: {
+            movingY: "move 2s linear infinite",
+          },
+        },
+        container: {
+          center: true,
+          padding: {
+            DEFAULT: "1rem",
+            sm: "2rem",
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- custom css -->
+  <style type="text/tailwindcss">
+
+    /* Base layer */
+    @layer base {
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: #FFFAE7;
+        color: black;
+        letter-spacing: wider;
+        overflow-x: hidden;
+      }
+      section {
+        display: block;
+      }
+    }
+
+    /* Components layer */
+    @layer components {
+      .btn {
+        display: inline-block;
+        font-size: 0.875rem;
+        padding: 0.75rem 2rem;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 0.375rem;
+        transition: ease-in-out 0.2s;
+      }
+
+      .btn-primary {
+        color: black;
+        background-color: #D2001A;
+      }
+      .btn-primary:hover {
+        opacity: 0.75;
+      }
+
+      .loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        z-index: 9999;
+      }
+      .myline {
+        li {
+          display: table-cell;
+          position: relative;
+          padding: auto;
+        }
+        a {
+          text-transform: uppercase;
+          text-decoration: none;
+          letter-spacing: 0.15em;
+
+          display: inline-block;
+          padding: auto;
+          position: relative;
+        }
+        a:after {
+          background: none repeat scroll 0 0 transparent;
+          bottom: 0;
+          content: "";
+          display: block;
+          height: 2px;
+          left: 50%;
+          position: absolute;
+          background: #FFDE00;
+          transition: width 0.3s ease 0s, left 0.3s ease 0s;
+          width: 0;
+        }
+        a:hover:after {
+          width: 100%;
+          left: 0;
+        }
+      }
+
+    .train-one-regular{
+      font-family: "Train One", system-ui;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .biryani-extralight {
+font-family: "Biryani", sans-serif;
+font-weight: 200;
+font-style: normal;
+}
+
+.biryani-light {
+font-family: "Biryani", sans-serif;
+font-weight: 300;
+font-style: normal;
+}
+
+.biryani-regular {
+font-family: "Biryani", sans-serif;
+font-weight: 400;
+font-style: normal;
+}
+
+.biryani-semibold {
+font-family: "Biryani", sans-serif;
+font-weight: 600;
+font-style: normal;
+}
+
+.biryani-bold {
+font-family: "Biryani", sans-serif;
+font-weight: 700;
+font-style: normal;
+}
+
+.biryani-extrabold {
+font-family: "Biryani", sans-serif;
+font-weight: 800;
+font-style: normal;
+}
+
+.biryani-black {
+font-family: "Biryani", sans-serif;
+font-weight: 900;
+font-style: normal;
+}
+
+.kode-mono-uniquifier {
+font-family: "Kode Mono", monospace;
+font-optical-sizing: auto;
+font-weight: 500;
+font-style: normal;
+}
+
+    }
+
+    /* Utilities layer */
+    @layer utilities {
+      
+    }
+
+  </style>
+
+  <!-- title and favicon -->
+  <title class="biryani-semibold">McDonald’s</title>
+  <link rel="shortcut icon" href="https://mcdindia.com/wp-content/uploads/2020/01/m-logo-big.svg" type="image/x-icon" />
+
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&family=Train+One&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Tilt+Prism&family=Train+One&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Biryani:wght@200;300;400;600;700;800;900&family=Kode+Mono:wght@500&family=Train+One&display=swap"
+    rel="stylesheet">
+
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- remix-icon -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <!--  Swiper's CSS & JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Scroll Reveal -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+  <!-- start_page script file -->
+  <!-- 1 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"
+    integrity="sha256-2p2tRZlPowp3P/04Pw2rqVCSbhyV/IB7ZEVUglrDS/c=" crossorigin="anonymous"></script>
+  <!-- 2 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"
+    integrity="sha256-peenofh8a9TIqKdPKIeQE7mJvuwh+J0To7nslvpj1jI=" crossorigin="anonymous"></script>
+  <!-- 3 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.js"
+    integrity="sha256-31FC/OT6XpfjAhj9FuXjw5/wPXXawCAjJQ29E23/XPk=" crossorigin="anonymous"></script>
+  <!-- 4 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+    integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U=" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="dark:bg-[#222831] dark:text-[#F0F2EF]">
+
+  <!-- preloader  ref=https://mcdindia.com/wp-content/uploads/2019/12/preloader.gif-->
+  <div class="loader">
+    <img src="./img/preloader.gif" style="max-width: 100%; max-height: 100%" />
+  </div>
+  <script>
+    window.addEventListener("load", () => {
+      const loader = document.querySelector(".loader");
+      loader.style.display = "none";
+    });
+  </script>
+
+  <!-- start_page -->
+  <div class="intro w-full h-screen flex items-center justify-center" id="start_pg">
+    <h1 class="absolute text-5xl text-white z-10 biryani-extrabold">McDonald's</h1>
+    <h2 class="absolute text-5xl text-white z-10 biryani-extrabold">Get The Best Experience</h2>
+    <video class="w-full h-screen object-cover blur-sm" src="./img/a.mp4"></video>
+  </div>
+
+  <!-- header -->
+  <header class="bg-white dark:bg-[#272B2B] fixed top-0 left-0 w-full z-50 py-0.5 hidden" id="header">
+    <nav class="container relative h-auto flex justify-between items-center mx-auto">
+
+      <div class="ml-1 flex flex-row">
+        <a href="#">
+          <img src="https://mcdindia.com/wp-content/uploads/2020/04/logo-symbol.svg" alt="logo" height="50px"
+            width="50px" />
+        </a>
+      </div>
+
+      <div
+        class="hidden myline absolute top-0 left-0 w-full py-14 dark:text-[#EEEEEE] md:block md:static md:py-0 md:border-none md:w-auto md:ml-auto"
+        id="nav-menu">
+        <ul class="flex flex-col p-2 text-center gap-5 md:flex-row bg-white dark:bg-[#272B2B] rounded-lg">
+          <li>
+            <a href="#home"
+              class="nav__link hover:text-[#FFDE00] dark:hover:text-[#FFD369] transition-all ease-in duration-200">Home</a>
+          </li>
+          <li>
+            <a href="#menu"
+              class="nav__link hover:text-[#FFDE00] dark:hover:text-[#FFD369] ease-in duration-200">Menu</a>
+          </li>
+          <li>
+            <a href="#order"
+              class="nav__link hover:text-[#FFDE00] dark:hover:text-[#FFD369] ease-in duration-200">Order</a>
+          </li>
+          <li>
+            <a href="#review"
+              class="nav__link hover:text-[#FFDE00] dark:hover:text-[#FFD369] ease-in duration-200">Review</a>
+          </li>
+          <li>
+            <a href="#contact"
+              class="nav__link hover:text-[#FFDE00] dark:hover:text-[#FFD369] ease-in duration-200">Contact</a>
+          </li>
+        </ul>
+
+        <div class="absolute top-[0.6rem] right-8 text-2xl cursor-pointer md:hidden" id="nav-close">
+          <i class="ri-close-line"></i>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-5">
+        <i class="ri-moon-line cursor-pointer ml-4 text-xl" id="theme-toggle"></i>
+
+        <div class="md:hidden" id="hamburger">
+          <i class="ri-menu-2-line cursor-pointer text-xl"></i>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- main container -->
+  <main>
+
+    <!-- home_page -->
+  <section id="home" class="home">
+
+      <div class="ml-3 swiper mySwiper w-full">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <div class="grid grid-rows-2 lg:grid-cols-3 lg:grid-rows-1">
+              <div class="lg:col-span-1 flex justify-center items-center bg-[#FFDE00] dark:bg-[#F9D949]">
+                <div>
+                  <p class="text-center text-[#D2001A] dark:text-[#F45050] text-5xl kode-mono-uniquifier">The Great</p>
+                  <p class="text-center text-6xl text-[#D2001A] dark:text-[#F45050] train-one-regular">McDonalds</p>
+                  <p class="text-center text-6xl text-[#D2001A] dark:text-[#F45050] kode-mono-uniquifier">Sale</p>
+                </div>
+              </div>
+              <div class="lg:col-span-2">
+                <img src="https://mcdindia.com/wp-content/uploads/2024/02/img1.jpg" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="grid grid-rows-2 lg:grid-cols-3 lg:grid-rows-1">
+              <div class="lg:col-span-1 flex justify-center items-center bg-[#FFDE00] dark:bg-[#F9D949]">
+                <div>
+                  <p class="text-center text-[#D2001A] dark:text-[#F45050] text-5xl kode-mono-uniquifier">New</p>
+                  <p class="text-center text-6xl text-[#D2001A] dark:text-[#F45050] train-one-regular">Kebab Rolls</p>
+                </div>
+              </div>
+              <div class="lg:col-span-2">
+                <img src="https://mcdindia.com/wp-content/uploads/2024/01/kebab_rolls.jpg" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="grid grid-rows-2 lg:grid-cols-3 lg:grid-rows-1">
+              <div class="lg:col-span-1 flex justify-center items-center bg-[#FFDE00] dark:bg-[#F9D949]">
+                <div>
+                  <p class="text-center text-[#D2001A] dark:text-[#F45050] text-5xl kode-mono-uniquifier">RollsNew
+                    Chicken</p>
+                  <p class="text-center text-6xl text-[#D2001A] dark:text-[#F45050] train-one-regular">McWings®️</p>
+                  <p class="text-center text-6xl text-[#D2001A] dark:text-[#F45050] kode-mono-uniquifier">Lip-smacking
+                  </p>
+                  <p class="text-center text-6xl text-[#D2001A] dark:text-[#F45050] kode-mono-uniquifier">Chilli & Lemon
+                  </p>
+                  <p class="text-center text-6xl text-[#D2001A] dark:text-[#F45050] kode-mono-uniquifier">flavourVeg</p>
+                </div>
+              </div>
+              <div class="lg:col-span-2">
+                <img src="https://mcdindia.com/wp-content/uploads/2023/03/first-fold.jpg" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="grid grid-rows-2 lg:grid-cols-3 lg:grid-rows-1">
+              <div class="lg:col-span-1 flex justify-center items-center bg-[#FFDE00] dark:bg-[#F9D949]">
+                <div>
+                  <p class="text-center text-[#D2001A] dark:text-[#F45050] text-5xl kode-mono-uniquifier">Veg Surprise
+                  </p>
+                  <p class="text-center text-6xl text-[#D2001A] dark:text-[#F45050] train-one-regular">Your favourite
+                  </p>
+                  <p class="text-center text-6xl text-[#D2001A] dark:text-[#F45050] kode-mono-uniquifier">is back!</p>
+                </div>
+              </div>
+              <div class="lg:col-span-2">
+                <img src="https://mcdindia.com/wp-content/uploads/2022/12/veg-surprise-banner-final.jpg" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="grid grid-rows-2 lg:grid-cols-3 lg:grid-rows-1">
+              <div class="lg:col-span-1 flex justify-center items-center bg-[#FFDE00] dark:bg-[#F9D949]">
+                <div>
+                  <p class="text-center text-[#D2001A] dark:text-[#F45050] text-5xl kode-mono-uniquifier">Breakfast Menu
+                  </p>
+                  <p class="text-center text-6xl text-[#D2001A] dark:text-[#F45050] train-one-regular">Start your day
+                  </p>
+                  <p class="text-center text-6xl text-[#D2001A] dark:text-[#F45050] kode-mono-uniquifier">with
+                    McDonald's</p>
+                  <p class="text-center text-6xl text-[#D2001A] dark:text-[#F45050] kode-mono-uniquifier">Breakfast</p>
+                </div>
+              </div>
+              <div class="lg:col-span-2">
+                <img src="https://mcdindia.com/wp-content/uploads/2022/10/breakfast-menu-first-fold-img.jpg" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="grid grid-rows-2 lg:grid-cols-3 lg:grid-rows-1">
+              <div class="lg:col-span-1 flex justify-center items-center bg-[#FFDE00] dark:bg-[#F9D949]">
+                <div>
+                  <p class="text-center text-[#D2001A] dark:text-[#F45050] text-5xl kode-mono-uniquifier">Happy Birthday
+                  </p>
+                  <p class="text-center text-6xl text-[#D2001A] dark:text-[#F45050] train-one-regular">Celebrate your
+                  </p>
+                  <p class="text-center text-6xl text-[#D2001A] dark:text-[#F45050] kode-mono-uniquifier">child's
+                    birthday</p>
+                  <p class="text-center text-6xl text-[#D2001A] dark:text-[#F45050] kode-mono-uniquifier">with us</p>
+                </div>
+              </div>
+              <div class="lg:col-span-2">
+                <img src="https://mcdindia.com/wp-content/uploads/2022/07/img1.jpg" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="grid grid-rows-2 lg:grid-cols-3 lg:grid-rows-1">
+              <div class="lg:col-span-1 flex justify-center items-center bg-[#FFDE00] dark:bg-[#F9D949]">
+                <div>
+                  <p class="text-center text-[#D2001A] dark:text-[#F45050] text-5xl kode-mono-uniquifier">Happy Meal</p>
+                  <p class="text-center text-6xl text-[#D2001A] dark:text-[#F45050] train-one-regular">Wholesome Meal
+                  </p>
+                  <p class="text-center text-6xl text-[#D2001A] dark:text-[#F45050] kode-mono-uniquifier">& Adventure,
+                    all</p>
+                  <p class="text-center text-6xl text-[#D2001A] dark:text-[#F45050] kode-mono-uniquifier">in one</p>
+                </div>
+              </div>
+              <div class="lg:col-span-2">
+                <img src="https://mcdindia.com/wp-content/uploads/2022/04/img.jpg" alt="" />
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <!-- Initialize Swiper -->
+      <script>
+        var swiper = new Swiper(".mySwiper", {
+          spaceBetween: 1,
+          centeredSlides: true,
+          autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+      </script>
+    </section>
+
+    <!-- menu -->
+    <section id="menu" class="menu">
+      <!-- menubar -->
+      <div class="myline pl-8 py-10">
+        <ul class="menubar flex flex-wrap gap-5">
+          <li class="menu__item cursor-pointer">
+            <a href="#BURGERS & WRAPS" onclick="showContent('burgers')"
+              class="hover:text-[#FFDE00] dark:hover:[#FFD369] text-[1.2rem] biryani-semibold ease-in duration-200">BURGERS
+              & WRAPS</a>
+          </li>
+          <li>|</li>
+          <li class="menu__item cursor-pointer">
+            <a href="#SNACKS & SIDES" onclick="showContent('sides')"
+              class="hover:text-[#FFDE00] dark:hover:[#FFD369] text-[1.2rem] biryani-semibold ease-in duration-200">SNACKS
+              & SIDES</a>
+          </li>
+          <li>|</li>
+          <li class="menu__item cursor-pointer">
+            <a href="#DESSERTS" onclick="showContent('desserts')"
+              class="hover:text-[#FFDE00] dark:hover:[#FFD369] text-[1.2rem] biryani-semibold ease-in duration-200">DESSERTS</a>
+          </li>
+          <li>|</li>
+          <li class="menu__item cursor-pointer">
+            <a href="#BEVERAGES" onclick="showContent('beverages')"
+              class="hover:text-[#FFDE00] dark:hover:[#FFD369] text-[1.2rem] biryani-semibold ease-in duration-200">BEVERAGES</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mb-14">
+
+        <div id="burgers" class="content" style="display: block">
+          <div style="
+              --swiper-navigation-color: #D2001A;
+              --swiper-pagination-color: #000;
+            " class="swiper mySwiper2 w-full h-[72vh]">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+
+                  <div class="relative rounded-lg w-full md:w-1/2">
+
+
+                    <div class="relative">
+
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Veg Surprise Burger</p>
+                      </div>
+
+                    </div>
+
+
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold "> A surprise that will leave you wide-eyed.
+                      </b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        A scrumptious potato patty topped with a delectable
+                        Italian herb sauce and shredded onions placed between
+                        perfectly toasted buns.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold"> Serving Size: </b>
+                      132g
+                      <br />
+                      <br />
+                      <b class="text-[#D2001A] dark:text-[#F45050] biryani-bold"> Allergen Warning! Contains: </b>
+                      <p class="biryani-regular tracking-wide">Cereal containing gluten, Milk, Soya</p>
+                    </div>
+
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/table1.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="relative md:w-1/2">
+
+                    <img src="https://mcdindia.com/wp-content/uploads/2023/01/veg-surprise-burger-1.png" alt="" />
+
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-auto bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Regular Bun, Italian mayo, Shredded onion, Herb Chilli Potato patty
+                        </p>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+
+                  <div class="relative rounded-lg w-full md:w-1/2">
+
+
+                    <div class="relative">
+
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">McAloo Tikki Burger®</p>
+                      </div>
+
+                    </div>
+
+
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold "> The one that never goes out of f(l)avour.
+                      </b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        A golden fried vegetarian patty prepared with peas, potato and infused with aromatic spices.
+                        Clubbed with sliced tomatoes, shredded red onion, and tangy tomato mayonnaise. Served in a warm
+                        toasted bun.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold"> Serving Size: </b>
+                      146g
+                      <br />
+                      <br />
+                      <b class="text-[#D2001A] dark:text-[#F45050] biryani-semibold"> Allergen Warning! Contains: </b>
+                      <p class="biryani-regular tracking-wide">Cereal containing gluten, Milk, Soya</p>
+                    </div>
+
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/table2.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="relative md:w-1/2">
+
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.1-mcaloo-tikki-cheese.png" alt="" />
+
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-auto bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Regular bun crown, Tom-Mayo sauce, Sliced tomatoes, Shredded onion,
+                          Aloo tikki patty, Regular bun heel</p>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+
+                  <div class="relative rounded-lg w-full md:w-1/2">
+
+
+                    <div class="relative">
+
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Dosa Masala Burger®</p>
+                      </div>
+
+                    </div>
+
+
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold ">A new taste of India. </b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        Turmeric-spiced mashed potato filling topped with fresh peas. Grilled and placed inside a soft
+                        whole wheat bun with a spicy molagapodi chutney mayo.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold"> Serving Size: </b>
+                      138g
+                      <br />
+                      <br />
+                      <b class="text-[#D2001A] dark:text-[#F45050] biryani-semibold"> Allergen Warning! Contains: </b>
+                      <p class="biryani-regular tracking-wide">Cereal containing gluten, Milk, Soya</p>
+                    </div>
+
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/table3.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="relative md:w-1/2">
+
+                    <img src="https://mcdindia.com/wp-content/uploads/2022/01/masala-dosa-burger-1.png" alt="" />
+
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-auto bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Whole wheat bun, Rasam mayo, Dosa masala aloo patty</p>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+
+                  <div class="relative rounded-lg w-full md:w-1/2">
+
+
+                    <div class="relative">
+
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">McVeggie®</p>
+                      </div>
+
+                    </div>
+
+
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold ">Pure taste. Pure veg. </b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        A delectable patty made of green goodness, potatoes, peas, carrots and a selection of Indian
+                        spices. Topped with crispy lettuce, mayonnaise, and packed into sesame toasted buns.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold"> Serving Size: </b>
+                      168g
+                      <br />
+                      <br />
+                      <b class="text-[#D2001A] dark:text-[#F45050] biryani-semibold"> Allergen Warning! Contains: </b>
+                      <p class="biryani-regular tracking-wide">Cereal containing gluten, Milk, Soya</p>
+                    </div>
+
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/table4.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="relative md:w-1/2">
+
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.3-mc-veggie-single.png" alt="" />
+
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-auto bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Quarter bun crown, Veg mayonnaise, Shredded lettuce, Vegetable patty,
+                          Quarter bun heel</p>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">McChicken®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold ">Familiarity breeds confidence.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        Batter & breaded chicken patty containing green peas, carrots, green beans, onion, potatoes,
+                        rice and spices, served in a bun with eggless mayonnaise and lettuce.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      173g
+                      <br />
+                      <br />
+                      <b class="text-[#D2001A] dark:text-[#F45050] biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular tracking-wide">Cereal containing gluten, Milk, Soya</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/table5.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.4-mcchicken-single.png" alt="" />
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-auto bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br />
+                        <p class="biryani-regular">Quarter bun crown, Veg mayonnaise, Shredded lettuce, McChicken patty,
+                          Quarter bun heel</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Fillet-O-Fish®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">This one's a great catch.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        Made with Alaskan Pollock sourced from sustainable fisheries; topped with a melty American
+                        cheese slice and creamy tartar sauce; and served on a soft, steamed bun.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      136g
+                      <br />
+                      <br />
+                      <b class="text-[#D2001A] dark:text-[#F45050] biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular tracking-wide">Cereal containing gluten, Milk, Egg, Fish, Soya</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/table6.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.5-filet-o-fish.png" alt="" />
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-auto bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Steamed regular bun, Chunky tartar mayo, Fish fillet patty, Cheese
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">McSpicy Paneer®</p>
+                      </div>
+                    </div>
+
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold ">Let paneer surprise you. </b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        Crispy and spicy paneer patty with creamy tandoori sauce and crispy lettuce topping.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      199g
+                      <br />
+                      <br />
+                      <b class="text-[#D2001A] dark:text-[#F45050] biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular tracking-wide">Cereal containing gluten, Milk, Soya</p>
+                    </div>
+
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/table7.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.6-mcspicy-paneer-single.png" alt="" />
+
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-auto bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Quarter pounder bun crown, Shredded lettuce, Tandoori mayo, Spicy
+                          paneer patty, Quarter pounder bun heel</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">McSpicy Chicken®</p>
+                      </div>
+                    </div>
+
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold ">Hot. In more ways than one. </b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        Zesty and redolent whole muscle leg meat patty: Fried to perfect golden tan; quenched with
+                        creamy veg mayo and garden-fresh shredded iceberg lettuce. The sandwich is served in fresh,
+                        sesame-studded quarter pounder bun.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      186g
+                      <br />
+                      <br />
+                      <b class="text-[#D2001A] dark:text-[#F45050] biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular tracking-wide">Cereal containing gluten, Milk, Egg, Soya</p>
+                    </div>
+
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/table8.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.7-mc-spicy-chicken-single.png" alt="" />
+
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-auto bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Quarter pounder bun crown, Veg sauce, Shredded lettuce, McSpicy
+                          chicken patty, Quarter pounder bun heel</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Spicy Paneer Wrap®</p>
+                      </div>
+                    </div>
+
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold ">Unwrap deliciousness. </b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        Tender paneer patty with a fiery, crunchy batter coating; dressed with fresh veggies and
+                        seasonings; topped with creamy sauce; and a dash of mustard and melted cheese.
+                        <br />
+                        <b class="biryani-semibold">Serving Size:</b>
+                        250g
+                        <br />
+                        <br />
+                        <b class="text-[#D2001A] dark:text-[#F45050] biryani-semibold">Allergen Warning! Contains:</b>
+                      </p>
+
+                      <p class="biryani-regular tracking-wide">Cereal containing gluten, Milk, Soya</p>
+                    </div>
+
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/table9.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.8-big-spicy-paneer-wrap-single.png"
+                      alt="" />
+
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-auto bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Whole wheat flat bread, Spicy paneer patty, Veg mayo, Lettuce, Onion,
+                          Tomato, Mustard sauce, Cheese</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Spicy Chicken Wrap®</p>
+                      </div>
+                    </div>
+
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold ">Familiar, yet different. </b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        Juicy chicken coated with hot and crispy batter; dressed with a fresh salad of lettuce, onions,
+                        tomatoes and seasonings. Served with creamy sauce and supple cheese slices.
+                        <br />
+                        <b class="biryani-semibold">Serving Size:</b>
+                        257g
+                        <br />
+                        <br />
+                        <b class="text-[#D2001A] dark:text-[#F45050] biryani-semibold">Allergen Warning! Contains:</b>
+                      </p>
+
+                      <p class="biryani-regular tracking-wide">Cereal containing gluten, Milk, Egg, Soya</p>
+                    </div>
+
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/table10.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.9-big-spicy-chicken-wrap.png" alt="" />
+
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-auto bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Whole wheat flat bread, Spicy chicken patty, Veg mayo, Lettuce,
+                          Onion, Tomato, Cheese</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Veg Maharaja Mac®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold ">A feast fit for kings (and queens).</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        A double-decker toasted Maharaja bun sandwiched with one layer of corn & cheese patty; crunchy
+                        iceberg lettuce; shredded onion; and a slice of cheese. Topped with another layer of corn &
+                        cheese patty; tomato slices; and crunchy iceberg lettuce infused with harberno sauce.
+                      </p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/table11.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.10-maharaja-mac-veg.png" alt="" />
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-auto bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Maharaja bun crown, Cocktail sauce, Shredded lettuce, Shredded onion,
+                          Jalepenos, Corn & cheese patty, club, Sliced cheese, Maharaja bun heel</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Chicken Maharaja Mac®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold ">A royal treat.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        A double-decker toasted Maharaja bun sandwiched with one layer of flame-grilled chicken patty;
+                        crunchy iceberg lettuce; shredded onion; and a slice of cheese. Topped with another layer of
+                        flame-grilled chicken patty; tomato slices; and crunchy iceberg lettuce infused with harberno
+                        sauce.
+                      </p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/table12.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.11-maharaja-mac-chicken-single.png"
+                      alt="" />
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-auto bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Maharaja bun crown, Haberno sauce, Shredded lettuce, Shredded onion,
+                          Jalapenos, Flame-grilled chicken patty, Sliced cheese, Maharaja bun heel</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">McEgg®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold ">Because eggs are great any time of the
+                        day.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        Made with the freshest, warm, off-the-farm egg; steamed to perfection in our specialised
+                        steamer; and made tasty with a sprinkling of magic masala. Sandwiched between freshly toasted
+                        buns, topped off with creamy mayo and some crunchy onion.
+                      </p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/table13.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.12-mcegg.png" alt="" />
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-auto bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Regular bun crown, Mayonnaise, Crisp onion, Egg, Curry spices,
+                          Regular bun heel</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Butter Chicken Grilled</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold ">Dil se makhani burger.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        Premium grilled chicken patty topped with makhani sauce and shredded onions placed between
+                        freshly toasted sesame seeded buns.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      153g
+                      <br />
+                      <br />
+                      <b class="text-[#D2001A] dark:text-[#F45050] biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular tracking-wide">Cereal containing gluten, Milk, Soya</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/table14.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2022/01/chicken-2.png" alt="" />
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-auto bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Premium grilled chicken patty, Shredded onion, Sesame seeded buns</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+
+          <div thumbsSlider="" class="swiper mySwiper3 container w-1/2 h-[100px] md:-mt-6">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide flex flex-row items-center bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2023/01/veg-surprise-burger-1.png" class="-my-4"
+                    alt="" />
+                </div>
+                <div class="my-1 ml-2 hidden md:block">
+                  <p>Veg Surprise Burger</p>
+                </div>
+              </div>
+
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="my-1 ml-2 flex items-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.1-mcaloo-tikki-cheese.png" class="-my-4"
+                    alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>McAloo Tikki Burger</p>
+                </div>
+              </div>
+
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2022/01/masala-dosa-burger-1.png" class="-my-4"
+                    alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Dosa Masala Burger</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.3-mc-veggie-single.png" class="-my-4"
+                    alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>McVeggie</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.4-mcchicken-single.png" class="-my-4"
+                    alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>McChicken</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.5-filet-o-fish.png" class="-my-4"
+                    alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Fillet-O-Fish</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.6-mcspicy-paneer-single.png" class="-my-4"
+                    alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>McSpicy Paneer</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.7-mc-spicy-chicken-single.png"
+                    class="-my-4" alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>McSpicy Chicken</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.8-big-spicy-paneer-wrap-single.png"
+                    class="-my-4" alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Spicy Paneer Wrap</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.9-big-spicy-chicken-wrap.png"
+                    class="-my-4" alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Spicy Chicken Wrap</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.10-maharaja-mac-veg.png" class="-my-4"
+                    alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Veg Maharaja Mac</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.11-maharaja-mac-chicken-single.png"
+                    class="-my-4" alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Chicken Maharaja Mac</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/2.12-mcegg.png" class="-my-4" alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>McEgg</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2022/01/chicken-2.png" class="-my-4" alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Butter Chicken Grilled Burger</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Initialize Swiper -->
+          <script>
+            var swiper = new Swiper(".mySwiper3", {
+              loop: true,
+              spaceBetween: 10,
+              slidesPerView: 3,
+              freeMode: true,
+              watchSlidesProgress: true,
+            });
+            var swiper2 = new Swiper(".mySwiper2", {
+              loop: true,
+              spaceBetween: 10,
+              navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              },
+              thumbs: {
+                swiper: swiper,
+              },
+            });
+          </script>
+        </div>
+
+        <div id="sides" class="content" style="display: none">
+          <div style="
+              --swiper-navigation-color: #ea0b0b;
+              --swiper-pagination-color: #000;
+            " class="swiper mySwiper6 w-full h-[72vh]">
+            <div class="swiper-wrapper">
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Chicken McNuggets®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">Each bite is better than the last.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        Bite-sized pieces of breaded, boneless chicken formed in various shapes (Ball, Boot, Bell &
+                        Bone) fried and served hot with smoky Barbeque Sauce or Mustard Sauce.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      64g | 96g | 144g | 320g
+                      <br />
+                      <br />
+                      <b class="text-[#D2001A] dark:text-[#F45050] biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular tracking-wide">Cereal containing gluten</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/s1.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/3.2-6pcs-chicken-nuggets.png" alt="" />
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-[180px] bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Chicken bites</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Pizza McPuff®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">Something different. Something delicious.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        A blend of assorted vegetables (carrot, beans,capsicum, onion & green peas); mozzarella cheese
+                        mixed with tomato sauce; and exotic spices stuffed in rectangle shaped savoury dough. Quick
+                        frozen.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      87g
+                      <br />
+                      <br />
+                      <b class="text-[#D2001A] dark:text-[#F45050] biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular tracking-wide">Cereal containing gluten, Milk, Soya</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/s3.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/3.1-pizza-mcpuff.png" alt="" />
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-[180px] bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Assorted vegetables, Refined wheat flour, Pizza seasoning</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Our World Famous Fries</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">The legend among legends.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        The crisp, craveable, fan favourite: our World Famous Fries®. These epic fries are crispy and
+                        golden on the outside and fluffy on the inside.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      77g | 109g | 154g
+                      <br />
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/s2.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/3.3-fries.png" alt="" />
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-[180px] bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Potato and salt</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Chicken McNuggets®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">Each bite is better than the last.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        Bite-sized pieces of breaded, boneless chicken formed in various shapes (Ball, Boot, Bell &
+                        Bone) fried and served hot with smoky Barbeque Sauce or Mustard Sauce.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      64g | 96g | 144g | 320g
+                      <br />
+                      <br />
+                      <b class="text-[#D2001A] dark:text-[#F45050] biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular tracking-wide">Cereal containing gluten</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/s1.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/3.2-6pcs-chicken-nuggets.png" alt="" />
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-[180px] bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Chicken bites</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Pizza McPuff®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">Something different. Something delicious.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        A blend of assorted vegetables (carrot, beans,capsicum, onion & green peas); mozzarella cheese
+                        mixed with tomato sauce; and exotic spices stuffed in rectangle shaped savoury dough. Quick
+                        frozen.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      87g
+                      <br />
+                      <br />
+                      <b class="text-[#D2001A] dark:text-[#F45050] biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular tracking-wide">Cereal containing gluten, Milk, Soya</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/s3.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/3.1-pizza-mcpuff.png" alt="" />
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-[180px] bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Assorted vegetables, Refined wheat flour, Pizza seasoning</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Our World Famous Fries</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">The legend among legends.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        The crisp, craveable, fan favourite: our World Famous Fries®. These epic fries are crispy and
+                        golden on the outside and fluffy on the inside.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      77g | 109g | 154g
+                      <br />
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/s2.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/3.3-fries.png" alt="" />
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-[180px] bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Potato and salt</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+
+          <div thumbsSlider="" class="swiper mySwiper5 container w-1/2 h-[100px] md:-mt-6">
+            <div class="swiper-wrapper">
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/3.2-6pcs-chicken-nuggets.png" class="-my-4"
+                    alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Chicken McNuggets</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/3.1-pizza-mcpuff.png" class="-my-4"
+                    alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Pizza McPuff</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/3.3-fries.png" class="-my-4" alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Our World Famous Fries</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/3.2-6pcs-chicken-nuggets.png" class="-my-4"
+                    alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Chicken McNuggets</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/3.1-pizza-mcpuff.png" class="-my-4"
+                    alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Pizza McPuff</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/3.3-fries.png" class="-my-4" alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Our World Famous Fries</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Initialize Swiper -->
+          <script>
+            var swiper = new Swiper(".mySwiper5", {
+              loop: true,
+              spaceBetween: 10,
+              slidesPerView: 3,
+              freeMode: true,
+              watchSlidesProgress: true,
+            });
+            var swiper2 = new Swiper(".mySwiper6", {
+              loop: true,
+              spaceBetween: 10,
+              navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              },
+              thumbs: {
+                swiper: swiper,
+              },
+            });
+          </script>
+        </div>
+
+        <div id="desserts" class="content" style="display: none">
+          <div style="
+              --swiper-navigation-color: #ea0b0b;
+              --swiper-pagination-color: #000;
+            " class="swiper mySwiper7 w-full h-[72vh]">
+            <div class="swiper-wrapper">
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">McFlurry (Oreo)®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">Burgers aren't the only things we're good
+                        at.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        Milk-based frozen dessert with oreo cookies.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      86.79g | 147.38g
+                      <br />
+                      <br />
+                      <b class="biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular">Cereal containing gluten, Milk, Soya, Sulphites</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/d1.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/4.1-mcflurry-oreo.png" alt="" />
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-[180px] bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Milk fat, Oreo</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">McFlurry (Oreo)®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">Burgers aren't the only things we're good
+                        at.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        Milk-based frozen dessert with oreo cookies.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      86.79g | 147.38g
+                      <br />
+                      <br />
+                      <b class="biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular">Cereal containing gluten, Milk, Soya, Sulphites</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/d1.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/4.1-mcflurry-oreo.png" alt="" />
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-[180px] bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Milk fat, Oreo</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">McSwirl Chocolate®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">Melts in your mouth. Goes to your heart.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        Delightful soft-serve with a delectable chocolate topping.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      93.29g
+                      <br />
+                      <br />
+                      <b class="biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular">Cereal containing gluten, Milk, Soya</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/d3.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/4.4-mcswirl-cone.png" alt="" />
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-[180px] bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Soft serve mix (100% diary product), Chocolate dip</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Sundae (Chocolate)®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">Much more than ice-cream.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        Creamy vanilla soft-serve topped with thick and rich hot fudge.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      91.79g | 132.08g
+                      <br />
+                      <br />
+                      <b class="biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular">Milk</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/d4.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/4.5-sundae-chocolate.png" alt="" />
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-[180px] bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Soft serve mix (100% diary), Hot fudge topping</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">McFlurry (Oreo)®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">Burgers aren't the only things we're good
+                        at.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        Milk-based frozen dessert with oreo cookies.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      86.79g | 147.38g
+                      <br />
+                      <br />
+                      <b class="biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular">Cereal containing gluten, Milk, Soya, Sulphites</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/d1.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/4.1-mcflurry-oreo.png" alt="" />
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-[180px] bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Milk fat, Oreo</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">McFlurry (Oreo)®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">Burgers aren't the only things we're good
+                        at.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        Milk-based frozen dessert with oreo cookies.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      86.79g | 147.38g
+                      <br />
+                      <br />
+                      <b class="biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular">Cereal containing gluten, Milk, Soya, Sulphites</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/d1.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/4.1-mcflurry-oreo.png" alt="" />
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-[180px] bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Milk fat, Oreo</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">McSwirl Chocolate®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">Melts in your mouth. Goes to your heart.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        Delightful soft-serve with a delectable chocolate topping.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      93.29g
+                      <br />
+                      <br />
+                      <b class="biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular">Cereal containing gluten, Milk, Soya</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/d3.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/4.4-mcswirl-cone.png" alt="" />
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-[180px] bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Soft serve mix (100% diary product), Chocolate dip</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Sundae (Chocolate)®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">Much more than ice-cream.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular tracking-wide">
+                        Creamy vanilla soft-serve topped with thick and rich hot fudge.
+                      </p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      91.79g | 132.08g
+                      <br />
+                      <br />
+                      <b class="biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular">Milk</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/d4.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2">
+                    <img src="https://mcdindia.com/wp-content/uploads/2020/02/4.5-sundae-chocolate.png" alt="" />
+                    <div class="absolute top-0 right-0 md:pr-10">
+                      <div class="w-[190px] h-[180px] bg-[#EFEFEF] bg-opacity-50 p-4 rounded-lg">
+                        <b class="flex justify-center text-lg biryani-bold">Ingredients</b>
+                        <br>
+                        <p class="biryani-regular">Soft serve mix (100% diary), Hot fudge topping</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+
+          <div thumbsSlider="" class="swiper mySwiper8 container w-1/2 h-[100px] md:-mt-6">
+            <div class="swiper-wrapper">
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/4.1-mcflurry-oreo.png" class="-my-4"
+                    alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>McFlurry Oreo</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/4.3-soft-serve-cone.png" class="-my-4"
+                    alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Soft Serve Cone</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/4.4-mcswirl-cone.png" class="-my-4"
+                    alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>McSwirl Chocolate</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/4.5-sundae-chocolate.png" class="-my-4"
+                    alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Sundae Chocolate</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/4.1-mcflurry-oreo.png" class="-my-4"
+                    alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>McFlurry Oreo</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/4.3-soft-serve-cone.png" class="-my-4"
+                    alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Soft Serve Cone</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/4.4-mcswirl-cone.png" class="-my-4"
+                    alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>McSwirl Chocolate</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/4.5-sundae-chocolate.png" class="-my-4"
+                    alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Sundae Chocolate</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Initialize Swiper -->
+          <script>
+            var swiper = new Swiper(".mySwiper8", {
+              loop: true,
+              spaceBetween: 10,
+              slidesPerView: 3,
+              freeMode: true,
+              watchSlidesProgress: true,
+            });
+            var swiper2 = new Swiper(".mySwiper7", {
+              loop: true,
+              spaceBetween: 10,
+              navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              },
+              thumbs: {
+                swiper: swiper,
+              },
+            });
+          </script>
+        </div>
+
+        <div id="beverages" class="content" style="display: none">
+          <div style="
+              --swiper-navigation-color: #ea0b0b;
+              --swiper-pagination-color: #000;
+            " class="swiper mySwiper10 w-full h-[72vh]">
+            <div class="swiper-wrapper">
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Black Coffee®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">Perfectly brewed for any time of the day.</b>
+                      <br />
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      200ml
+                      <br />
+                      <br />
+                      <b class="biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular">No Allergen</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/b1.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2 md:h-full">
+                    <div class="md:w-2/3 md:h-full md:mx-auto md:h-4/5">
+                      <img class="md:object-cover md:w-full md:h-full" src="./img/coffee.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Cold Coffee®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">Delightfully basic.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular">A rich smooth creamy cold coffee made with coffee powder and milk.</p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      250ml
+                      <br />
+                      <br />
+                      <b class="biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular">Milk</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/d2.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2 md:h-full">
+                    <div class="md:w-2/3 md:h-full md:mx-auto md:h-4/5">
+                      <img class="md:object-cover md:w-full md:h-full"
+                        src="https://mcdindia.com/wp-content/uploads/2022/01/cold-coffee.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Ice Tea®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">Refreshing and Fruity.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular">A blend of aromatic tea infused with the fruity essence of lemon.</p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      400ml
+                      <br />
+                      <br />
+                      <b class="biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular">No allergen</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/d2.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2 md:h-full">
+                    <div class="md:w-2/3 md:h-full md:mx-auto md:h-4/5">
+                      <img class="md:object-cover md:w-full md:h-full"
+                        src="https://mcdindia.com/wp-content/uploads/2020/02/5.5-iced-tea.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">McFloat®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">Delightfully basic.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular">Rich smooth creamy cold coffee along with sweet vanilla flavoured soft
+                        serve mix.</p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      270ml
+                      <br />
+                      <br />
+                      <b class="biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular">Milk</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/b4.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2 md:h-full">
+                    <div class="md:w-2/3 md:h-full md:mx-auto md:h-4/5">
+                      <img class="md:object-cover md:w-full md:h-full"
+                        src="https://mcdindia.com/wp-content/uploads/2022/01/mcfloat-1.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Black Coffee®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">Perfectly brewed for any time of the day.</b>
+                      <br />
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      200ml
+                      <br />
+                      <br />
+                      <b class="biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular">No Allergen</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/b1.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2 md:h-full">
+                    <div class="md:w-2/3 md:h-full md:mx-auto md:h-4/5">
+                      <img class="md:object-cover md:w-full md:h-full" src="./img/coffee.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Cold Coffee®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">Delightfully basic.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular">A rich smooth creamy cold coffee made with coffee powder and milk.</p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      250ml
+                      <br />
+                      <br />
+                      <b class="biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular">Milk</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/d2.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2 md:h-full">
+                    <div class="md:w-2/3 md:h-full md:mx-auto md:h-4/5">
+                      <img class="md:object-cover md:w-full md:h-full"
+                        src="https://mcdindia.com/wp-content/uploads/2022/01/cold-coffee.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">Ice Tea®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">Refreshing and Fruity.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular">A blend of aromatic tea infused with the fruity essence of lemon.</p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      400ml
+                      <br />
+                      <br />
+                      <b class="biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular">No allergen</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/d2.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2 md:h-full">
+                    <div class="md:w-2/3 md:h-full md:mx-auto md:h-4/5">
+                      <img class="md:object-cover md:w-full md:h-full"
+                        src="https://mcdindia.com/wp-content/uploads/2020/02/5.5-iced-tea.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div
+                  class="flex flex-wrap-reverse justify-center items-end h-full overflow-y-scroll md:overflow-hidden overflow-x-none">
+                  <div class="relative rounded-lg w-full md:w-1/2">
+                    <div class="relative">
+                      <div class="static w-full bg-[#FFDE00] dark:bg-[#F9D949] rounded-full align-center -ml-8 -mt-5">
+                        <p class="text-5xl text-center biryani-bold lg:-ml-14 pt-8 pb-2">McFloat®</p>
+                      </div>
+                    </div>
+                    <div class="relative mx-4 md:mx-16">
+                      <br />
+                      <b class="text-lg text-[#BE6E46] biryani-semibold">Delightfully basic.</b>
+                      <br />
+                      <br />
+                      <p class="biryani-regular">Rich smooth creamy cold coffee along with sweet vanilla flavoured soft
+                        serve mix.</p>
+                      <br />
+                      <b class="biryani-semibold">Serving Size:</b>
+                      270ml
+                      <br />
+                      <br />
+                      <b class="biryani-semibold">Allergen Warning! Contains:</b>
+                      <p class="biryani-regular">Milk</p>
+                    </div>
+                    <div class="relative mx-2">
+                      <br />
+                      <div class="w-full">
+                        <img src="./img/b4.png" alt="table1" class="object-cover w-full h-full rounded-lg" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative md:w-1/2 md:h-full">
+                    <div class="md:w-2/3 md:h-full md:mx-auto md:h-4/5">
+                      <img class="md:object-cover md:w-full md:h-full"
+                        src="https://mcdindia.com/wp-content/uploads/2022/01/mcfloat-1.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+
+          <div thumbsSlider="" class="swiper mySwiper9 container w-1/2 h-[100px] md:-mt-6">
+            <div class="swiper-wrapper">
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="./img/coffee.png" class="" style="max-width: 150px; max-height: 110px;" alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Black Coffee</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center items-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2022/01/cold-coffee.png" class="-my-4" alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Cold Coffee</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/5.5-iced-tea.png" class="-my-4" alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Iced Tea</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2022/01/mcfloat-1.png" class="-my-4" alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Cold Coffee Mcfloat</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="./img/coffee.png" class="" style="max-width: 150px; max-height: 110px;" alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Black Coffee</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center items-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2022/01/cold-coffee.png" class="-my-4" alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Cold Coffee</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2020/02/5.5-iced-tea.png" class="-my-4" alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Iced Tea</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide flex flex-row bg-[#EFEFEF] bg-opacity-50 shadow-lg p-1">
+                <div class="flex items-center justify-center">
+                  <img src="https://mcdindia.com/wp-content/uploads/2022/01/mcfloat-1.png" class="-my-4" alt="" />
+                </div>
+                <div class="my-1 ml-2 flex items-center hidden md:flex">
+                  <p>Cold Coffee Mcfloat</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Initialize Swiper -->
+          <script>
+            var swiper = new Swiper(".mySwiper9", {
+              loop: true,
+              spaceBetween: 10,
+              slidesPerView: 3,
+              freeMode: true,
+              watchSlidesProgress: true,
+            });
+            var swiper2 = new Swiper(".mySwiper10", {
+              loop: true,
+              spaceBetween: 10,
+              navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              },
+              thumbs: {
+                swiper: swiper,
+              },
+            });
+          </script>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- order_online -->
+    <section id="order" class="order">
+      <div
+        class="container-fluid bg-[#FFDE00] dark:bg-[#F9D949] dark:text-[#383D3B] flex md:flex-row flex-col items-center gap-4 h-[90%]">
+
+        <div
+          class="lg:flex-grow mx-4 p-4 md:w-1/2 lg:pr-24 md:pr-12 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+          <div>
+            <img class="rounded-lg" src="./img/delivery.gif" alt="delivery" height="100px" width="150px">
+          </div>
+          <br>
+          <b class="biryani-regular text-xl">McDelivery</b>
+          <br>
+          <p class="sm:text-4xl mb-4 biryani-black">
+            Order for Home-Delivered Smiles
+          </p>
+          <b class="biryani-extrabold">We deliver to your doorstep</b>
+          <br>
+          <p class="mb-8 leading-relaxed biryani-regular">
+            McDelivery allows you to experience delicious McDonald’s food from the comfort of your sofa at home or
+            cubicle in office. All orders are delivered quickly and efficiently, allowing you the peace of mind to know
+            that smiles-inducing food is never too far.
+          </p>
+          <div class="w-full">
+            <a
+              href="https://mcdelivery.co.in/?dsrcode=0001&businessmodelid=18&gad_source=1&gclid=CjwKCAjwkuqvBhAQEiwA65XxQPVQhZR_na96amsDo6uGYfuFC3PH3PWWQXAQL_NqlPPGvBi6I2JPQhoCfaMQAvD_BwE">
+              <button class="btn btn-primary biryani-semibold text-[#F0F2EF] w-1/2 rounded-full">
+                ORDER NOW !!!
+              </button>
+            </a>
+          </div>
+
+          <br>
+          <p class="text-md mt-2 mb-4 w-full biryani-semibold">
+            Now also on:
+          </p>
+          <div class="flex flex-row">
+            <a class="h-[60px] w-[60px] p-2" href="">
+              <img class="object-cover" src="https://mcdindia.com/wp-content/uploads/2019/12/logo-mcdelivery.svg"
+                alt="McDelivery" />
+            </a>
+            <a class="h-[60px] w-[60px] p-2" href="">
+              <img class="object-cover"
+                src="https://w7.pngwing.com/pngs/1012/115/png-transparent-swiggy-office-online-food-ordering-coupon-bangalore-business-business-text-service-orange.png"
+                alt="Swiggy" />
+            </a>
+            <a class="h-[60px] w-[60px] p-2" href="">
+              <img class="object-cover" src="https://seeklogo.com/images/Z/zomato-logo-200607EC4C-seeklogo.com.png"
+                alt="Zomato" />
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="lg:w-1/3 md:w-1/2 w-5/6 h-full sm:w-4/5">
+          <img class="object-cover object-center rounded" alt="hero"
+            src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/08930a10381567.5632c963e2527.jpg" />
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Review -->
+    <section id="review" class="review">
+
+      <div class="relative flex flex-col lg:flex-row gap-4 place-items-center justify-between p-6">
+        <div class="w-full lg:w-2/5 flex justify-center">
+          <img class="rounded-lg" src="https://etimg.etb2bimg.com/photo/82100006.cms" alt="">
+        </div>
+
+        <div class="flex flex-col lg:flex-row place-items-center justify-between gap-8 w-full lg:w-3/5">
+
+          <div class="w-1/2 lg:w-2/5 p-3">
+            <div class="swiper mySwiper4">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img class="rounded-lg" src="./img/r1.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img class="rounded-lg" src="./img/r2.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img class="rounded-lg" src="./img/r3.png" alt="">
+                </div>
+              </div>
+            </div>
+            <!-- Initialize Swiper -->
+            <script>
+              var swiper = new Swiper(".mySwiper4", {
+                effect: "cards",
+                grabCursor: true
+              });
+            </script>
+          </div>
+          <div class="w-1/2 lg:w-3/5 flex justify-center p-3">
+            <img class="rounded-lg object-cover" src="img/r4.png" alt="news">
+          </div>
+
+        </div>
+      </div>
+
+
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+
+      <div class="flex flex-col md:flex-row w-full bg-[#FFDE00] dark:bg-[#F9D949]">
+
+        <div class="md:w-3/5 md:h-[90vh] w-full h-1/2">
+          <video class="w-full h-full object-cover rounded-sm" autoplay muted loop>
+            <source src="./img/test.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="md:w-2/5 flex flex-col justify-center items-center p-3">
+          <h2 class="text-5xl dark:text-[#383D3B] font-bold mb-4 biryani-black">Special Offers & News</h2>
+          <p class="text-base dark:text-[#383D3B] mb-4 biryani-regular text-center">
+            Subscribe now for news, promotions and more delivered right to your inbox.
+          </p>
+          <a href="https://mcdindia.com/"
+            class="flex items-center justify-center gap-2 w-2/3 btn rounded-full bg-[#D2001A] dark:bg-[#EE2F36] hover:opacity-80 text-white py-2 px-4">
+            <i class="fa-solid fa-paper-plane text-white"></i>
+            <span class="tracking-wide biryani-bold">Subscribe</span>
+          </a>
+        </div>
+
+      </div>
+
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <section class="footer pt-8" id="footer">
+      <div class="container">
+        <ul class="grid grid-cols-1 items-start gap-5 pb-5 md:grid-cols-2 lg:grid-cols-4">
+          <li>
+            <div class="space-y-3">
+              <a href="" class="text-4xl biryani-bold uppercase">
+                <img src="https://mcdindia.com/wp-content/uploads/2020/01/m-logo-big.svg" alt="">
+              </a>
+
+              <p class="text-xs biryani-regular">
+                Connaught Plaza Restaurants Private Limited (licensee of McDonald's in North & East India)
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <div class="flex flex-col gap-3">
+              <h3 class="text-lg uppercase biryani-bold">SUPPORT</h3>
+              <a href="" class="text-xs hover:text-[#FFDE00] biryani-regular">FAQ's</a>
+              <a href="" class="text-xs hover:text-[#FFDE00] biryani-regular">Privacy Policy</a>
+              <a href="" class="text-xs hover:text-[#FFDE00] biryani-regular">Term & Condition</a>
+              <a href="" class="text-xs hover:text-[#FFDE00] biryani-regular">Contact</a>
+            </div>
+          </li>
+
+          <li class="space-y-8">
+            <div class="space-y-2">
+              <h3 class="text-lg uppercase biryani-bold">phone</h3>
+
+              <p class="flex items-center gap-2 text-xs biryani-regular">
+                <i class="fa-solid fa-phone text-lg text-[#FFDE00]"></i>
+                +1 000 000 0000
+              </p>
+            </div>
+
+            <div class="space-y-2">
+              <h3 class="text-lg uppercase biryani-bold">email</h3>
+
+              <p class="flex items-center gap-2 text-xs biryani-regular">
+                <i class="fa-solid fa-envelope text-lg text-[#FFDE00]"></i>
+                burger.info@email.com
+              </p>
+            </div>
+          </li>
+
+          <li class="space-y-8">
+            <div class="space-y-2">
+              <h3 class="text-lg uppercase biryani-bold">address</h3>
+
+              <p class="flex items-center gap-2 text-xs">
+                <i class="fa-solid fa-location-dot text-lg text-[#FFDE00]"></i>
+                North & East India
+              </p>
+            </div>
+
+            <div class="space-y-2">
+              <h3 class="text-lg uppercase biryani-bold">follow us</h3>
+
+              <div class="space-x-3">
+                <i
+                  class="fa-brands fa-facebook-f text-xl cursor-pointer text-[#FFDE00] hover:-translate-y-1 ease-in duration-200"></i>
+                <i
+                  class="fa-brands fa-twitter text-xl cursor-pointer text-[#FFDE00] hover:-translate-y-1 ease-in duration-200"></i>
+                <i
+                  class="fa-brands fa-square-instagram text-xl cursor-pointer text-[#FFDE00] hover:-translate-y-1 ease-in duration-200"></i>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <div
+          class="flex flex-col items-center border-t border-black dark:border-white py-5 md:flex-row md:justify-between">
+          <p class="text-xs biryani-regular"><span><i class="fa-solid fa-user-group"></i></span> Website by 22BCE337 &
+            22BCE335 (Ref. mcdindia)</p>
+          <p class="text-xs biryani-regular">© 2021-22 McDonald's. All Rights Reserved.</p>
+        </div>
+      </div>
+    </section>
+  </footer>
+
+  <!-- Scroll Up -->
+  <a href="#"
+    class="fixed right-4 -bottom-1/2 bg-[#FFDE00] dark:bg-[#F9D949] shadow-md inline-block px-4 py-2 rounded-full text-lg text-[#383D3B] z-50 hover:-translate-y-1 ease-in duration-200"
+    id="scroll-up">
+    <i class="fa-solid fa-arrow-up"></i>
+  </a>
+
+  <!-- Main.js -->
+  <script src="app.js"></script>
+
+</body>
+
+</html>

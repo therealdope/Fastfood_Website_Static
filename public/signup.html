@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN-UP</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="w-screen h-screen absolute -z-1">
+
+        <video class="w-full h-full object-cover rounded-sm blur-lg" autoplay muted loop>
+            <source src="./img/signupA.mp4" type="video/mp4">
+        </video>
+
+    </div>
+    <div class="h-screen w-screen flex items-center fixed">
+        <div class="p-14 mx-auto my-auto bg-white flex flex-col justify-center rounded-lg shadow-2xl">
+            <div>
+                <h1 class="text-5xl font-bold underline">Sign-Up Form</h1>
+            </div>
+            <form action="/sign_up" method="POST" class="flex flex-col items-center mt-6 gap-3">
+
+                <div>
+                    <label for="first"><p class="text-[16px] pb-1">First Name</p></label>
+                    <input id="first" name="first" type="text" class="w-[400px] h-[40px] border rounded-md p-1 hover:bg-slate-100" placeholder="First Name" required>
+                </div>
+
+                <div>
+                    <label for="last"><p class="text-[16px] pb-1">Last Name</p></label>
+                    <input id="last" name="last" type="text" class="w-[400px] h-[40px] border rounded-md p-1 hover:bg-slate-100" placeholder="Last Name" required>
+                </div>
+
+                <div>
+                    <label for="gender"><p class="text-[16px] pb-1">Gender</p></label>
+                    <select name="gender" id="gender" class="w-[400px] h-[40px] border cursor-pointer rounded-md p-1 hover:bg-slate-100" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Others">Others</option>
+                      </select>
+                </div>
+
+                <div>
+                    <label for="email"><p class="text-[16px] pb-1">Email-id</p></label>
+                    <input id="email" name="email" type="email" class="w-[400px] h-[40px] border rounded-md p-1 hover:bg-slate-100" placeholder="Email-ID" required>
+                </div>
+
+                <div>
+                    <label for="user"><p class="text-[16px] pb-1">User-ID</p></label>
+                    <input id="user" name="user" type="text" class="w-[400px] h-[40px] border rounded-md p-1 hover:bg-slate-100" placeholder="User-ID" required>
+                </div>
+
+                <div>
+                    <label for="password"><p class="text-[16px] pb-1">Password</p></label>
+                    <input id="password" name="password" type="text" class="w-[400px] h-[40px] border rounded-md p-1 hover:bg-slate-100" placeholder="Password" required>
+                </div>
+
+                <input type="submit" class="w-[400px] h-[40px] bg-[#4F46E5] hover:bg-[#3a30e2] text-white mt-4 rounded-md" value="Submit" id="submit" disabled/>
+            </form>
+        </div>
+    </div>
+
+    <script src="signup.js">
+    </script>
+</body>
+</html>

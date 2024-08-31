@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="w-screen h-screen absolute -z-1">
+
+        <video class="w-full h-full object-cover rounded-sm blur-lg" autoplay muted loop>
+            <source src="./img/loginA.mp4" type="video/mp4">
+        </video>
+
+    </div>
+    <div class="h-screen w-screen flex items-center fixed">
+        
+        <div class="p-14 mx-auto my-auto bg-white flex flex-col justify-center rounded-lg shadow-2xl">
+            <div class="p-1">
+                <h1 class="text-5xl font-bold underline">Login Here</h1>
+            </div>
+            <form action="/login" method="POST" class="flex flex-col items-center mt-6 gap-3">
+                <div>
+                    <label for="user"><p class="text-[16px] pb-1">User-ID</p></label>
+                    <input id="user" name="user" type="text" class="w-[350px] h-[40px] p-1 border rounded-md hover:bg-slate-100" placeholder="" required>
+                </div>
+                <div>
+                    <label for="password"><p class="text-[16px] pb-1">Password</p></label>
+                    <input id="password" name="password" type="password" class="w-[350px] h-[40px] border rounded-md p-1 hover:bg-slate-100" placeholder="" required>
+                </div>
+
+                <input type="submit" class="w-[350px] h-[40px] bg-[#4F46E5] hover:bg-[#3a30e2] text-white mt-4 rounded-md" value="Submit" id="submit" disabled/>
+            </form>
+
+            <button onclick="redirect()" class="text-md ml-[280px] p-3 text-[#0609B1] hover:text-[#3a30e2] hover:underline">Sign-Up</button>
+        </div>
+
+
+    </div>
+
+    
+    <script src="button.js"></script>
+</body>
+</html>
