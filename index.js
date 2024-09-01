@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({
 // app.use(express.urlencoded());
 app.use(express.static('public'));
 
-mongoose.connect('mongodb+srv://shreyvyas:password12345@cluster0.xr6h2my.mongodb.net/burger');
+mongoose.connect('<connection link>');
 var db = mongoose.connection;
 db.on('error', () => console.log("Error in Connecting to Database"));
 db.once('open', () => console.log("Connected to Database"));
