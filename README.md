@@ -61,3 +61,12 @@ Various enhancements can be incorporated into the project, including:
 - Implementing complex transitions and visual effects.
 - Implementing dark mode.
 - Utilizing Swiper.js for unique user review display.
+
+## Usage
+
+1. clone repository:
+2. copy your mongodb database link and paste it into index.js -> mongoose.connect():
+3. install require dependency:
+4. run server of given port in terminal:
+5. open index.html on given port:
+6. now you are ready to explore our fastfood website:
