@@ -1,5 +1,7 @@
 # Fast Food Website Project
 
+[![🍔 LINK](https://img.shields.io/badge/🍔-Visit%20Website-red)](https://therealdope.github.io/Fastfood_Website_Deploy/)
+
 This project aims to provide a smooth interface for users to access menu items and other vital information on a fast food website. The goal is to create a convincing platform that encourages users to buy and eat from the website.
 
 **Platform Overview:**
